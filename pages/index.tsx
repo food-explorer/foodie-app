@@ -1,10 +1,9 @@
-import { Button } from "@chakra-ui/react"
+import Header from "../components/Header";
 
 export default function Home() {
   return (
     <div>
-      <h1> Hello world</h1>
-      <Button>Yes Boss!</Button>
+      <Header />
     </div>
   );
 }

@@ -6,7 +6,7 @@ export default {
       "200": "#F2979A",
       "300": "#ED6E73",
       "400": "#E8454C",
-      "500": "#E31C24",
+      "500": "#E8454C",
       "600": "#B5171D",
       "700": "#881116",
       "800": "#5B0B0E",
@@ -19,5 +19,12 @@ export default {
         colorScheme: "brand",
       },
     },
+    Heading: {
+      variants: {
+        "brand": {
+          color: "brand.400",
+        },
+      }
+    }
   },
 }
