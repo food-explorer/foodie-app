@@ -1,8 +1,9 @@
+import { Button } from "@chakra-ui/button";
 import { Box, Flex, Heading, HStack, Text } from "@chakra-ui/layout";
 
 const Header = () => {
   return (
-    <Flex justifyContent="space-between" p="4">
+    <Flex justifyContent="space-between" p={['4', '8']} alignItems='center'>
       <Box>
         <Heading size="md" variant="brand" cursor="pointer">
           Food Explorer
@@ -10,9 +11,8 @@ const Header = () => {
       </Box>
       <Flex>
         <HStack spacing="4">
-          <Text> Explore </Text>
           <Text> Log In </Text>
-          <Text> Sign Up </Text>
+          <Button>Sign Up</Button>
         </HStack>
       </Flex>
     </Flex>
