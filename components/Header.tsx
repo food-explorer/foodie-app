@@ -19,7 +19,7 @@ const Header = () => {
       <Flex>
         <HStack spacing="4">
           <Text>
-            <CustomLink url="/">Log In</CustomLink>
+            <CustomLink url="/login">Log In</CustomLink>
           </Text>
           <CustomLink url="/register">
             <Button>Sign Up</Button>
