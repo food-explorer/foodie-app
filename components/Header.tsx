@@ -6,7 +6,7 @@ const Header = () => {
     <Flex justifyContent="space-between" p={['4', '8']} alignItems='center'>
       <Box>
         <Heading size="md" variant="brand" cursor="pointer">
-          Food Explorer
+          Honey Comb
         </Heading>
       </Box>
       <Flex>

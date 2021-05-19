@@ -1,19 +1,26 @@
 import { Image } from "@chakra-ui/image";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { Box, Flex, Heading, Link, Text } from "@chakra-ui/layout";
-import { FaSearch } from "react-icons/fa";
-import { IconButton } from "@chakra-ui/button";
+import { FaArrowRight, FaSearch } from "react-icons/fa";
+import { Button, IconButton } from "@chakra-ui/button";
+import Icon from "@chakra-ui/icon";
 
 const Hero = () => {
   return (
     <Flex alignItems="center" justifyContent="center">
       <Box>
-        <Heading size="2xl">
-          Join other food explorers to share more than just food
+        <Heading size="xl">
+          Share more than just food with other foodies, share memories too.
         </Heading>
         <Box marginTop="4">
           <Link>
-            <Text fontSize="3xl">Explore Places</Text>
+            <Button rightIcon={<FaArrowRight />} variant="link" size="lg">
+              Explore Places
+            </Button>
+            {/* <Flex alignItems='center'>
+              <Text fontSize={["xl", "3xl"]}>Explore Places</Text>
+              <Icon as={FaArrowRight} boxSize={8}/>
+            </Flex> */}
           </Link>
           <Flex marginTop="4">
             <InputGroup maxWidth="md">
@@ -21,7 +28,7 @@ const Hero = () => {
                 placeholder="Search Places"
                 borderRightRadius="none"
                 size="lg"
-                focusBorderColor='none'
+                focusBorderColor="none"
               />
             </InputGroup>
             <IconButton
@@ -33,7 +40,12 @@ const Hero = () => {
           </Flex>
         </Box>
       </Box>
-      <Image src="/main-meal.svg" alt="main meal" width="600px" display={{ base: 'none', md: 'block' }} />
+      <Image
+        src="/main-meal.svg"
+        alt="main meal"
+        width="600px"
+        display={{ base: "none", md: "block" }}
+      />
     </Flex>
   );
 };
