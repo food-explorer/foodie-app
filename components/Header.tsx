@@ -4,31 +4,26 @@ import {
   Flex,
   Heading,
   HStack,
-  Link as ChakraLink,
   Text,
 } from "@chakra-ui/layout";
-import Link from "next/link";
+import CustomLink from "./Link";
 
 const Header = () => {
   return (
     <Flex justifyContent="space-between" p={["4", "8"]} alignItems="center">
       <Box>
         <Heading size="md" variant="brand" cursor="pointer">
-          <ChakraLink as={Link} href="/">
-            Foodie
-          </ChakraLink>
+          <CustomLink url="/">Foodie</CustomLink>
         </Heading>
       </Box>
       <Flex>
         <HStack spacing="4">
           <Text>
-            <ChakraLink as={Link} href="/login">
-              Log In
-            </ChakraLink>
+            <CustomLink url="/">Log In</CustomLink>
           </Text>
-          <ChakraLink as={Link} href="/register">
+          <CustomLink url="/register">
             <Button>Sign Up</Button>
-          </ChakraLink>
+          </CustomLink>
         </HStack>
       </Flex>
     </Flex>
