@@ -1,4 +1,11 @@
 export default {
+  styles: {
+    global: {
+      '::-webkit-scrollbar': {
+        display: 'none'
+      }
+    }
+  },
   colors: {
     "brand": {
       "50": "#FCE8E9",
