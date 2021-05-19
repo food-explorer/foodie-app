@@ -19,7 +19,7 @@ const Login = () => {
         <Box mt="24">
           <VStack spacing={8}>
             <Heading color="brand.400" size="lg">
-              Foodie
+            <ChakraLink as={Link} href='/'>Foodie</ChakraLink>
             </Heading>
             <Heading size="md">Welcome, let's get you signed in</Heading>
           </VStack>
