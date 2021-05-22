@@ -1,6 +1,7 @@
 import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
 import { Box, Flex, Heading, HStack, Text } from "@chakra-ui/layout";
+import Link from "next/link";
 import CustomLink from "./Link";
 
 const Header = () => {
@@ -32,7 +33,14 @@ const Header = () => {
             <Text>
               <CustomLink url="/login">New Post</CustomLink>
             </Text>
-            <Avatar name="Tunde Nasri" size="sm" src='https://i.imgur.com/Gh4Zd8w.jpg' />
+            <Link href="/profile">
+              <Avatar
+                name="Tunde Nasri"
+                size="sm"
+                src="https://i.imgur.com/Gh4Zd8w.jpg"
+                cursor="pointer"
+              />
+            </Link>
           </HStack>
         </Flex>
       )}
