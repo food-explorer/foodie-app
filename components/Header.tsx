@@ -28,7 +28,7 @@ const Header = () => {
         <Flex>
           <HStack spacing="4">
             <Text>
-              <CustomLink url="/login">My List</CustomLink>
+              <CustomLink url="/posts">My List</CustomLink>
             </Text>
             <Text>
               <CustomLink url="/login">New Post</CustomLink>
