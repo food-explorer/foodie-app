@@ -7,9 +7,9 @@ import Icon from "@chakra-ui/icon";
 
 export const SliderPost = () => {
   return (
-    <Box w="263px">
+    <Box minW="263px" w='263px'>
       <Box>
-        <Image src="/post.svg" alt="svg post" />
+        <Image src="/post.svg" alt="svg post" w='100%' />
       </Box>
       <Flex justifyContent="space-between" mt="2">
         <Text fontSize="lg" fontWeight="600">
@@ -39,7 +39,7 @@ const Post = () => {
   return (
     <Box minWidth="263px">
       <Box>
-        <Image src="/post.svg" alt="svg post" />
+        <Image src="/post.svg" alt="svg post" w='100%' />
       </Box>
       <Flex justifyContent="space-between" mt="2">
         <Text fontSize="lg" fontWeight="600">

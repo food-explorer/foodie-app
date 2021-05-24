@@ -52,7 +52,11 @@ const Slide = ({ title }: { title?: string }) => {
   };
   return (
     <Box marginTop="8">
-      <Flex alignItems="center" justifyContent="space-between" mb="4">
+      <Flex
+        alignItems="center"
+        justifyContent={title ? "space-between" : "flex-end"}
+        mb="4"
+      >
         {title && <Heading size="lg">{title}</Heading>}
         <Box mr="6" display={{ base: "none", lg: "block" }}>
           <IconButton
@@ -94,7 +98,7 @@ const Slide = ({ title }: { title?: string }) => {
         {Array(10)
           .fill("")
           .map((_, i) => (
-            <Post key={i} />
+            <SliderPost key={i} />
           ))}
       </HStack>
     </Box>
