@@ -2,7 +2,15 @@ import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
 import Icon from "@chakra-ui/icon";
 import { Image } from "@chakra-ui/image";
-import { Box, Flex, Heading, HStack, Text, VStack } from "@chakra-ui/layout";
+import {
+  Box,
+  Flex,
+  Heading,
+  HStack,
+  SimpleGrid,
+  Text,
+  VStack,
+} from "@chakra-ui/layout";
 import { Tag } from "@chakra-ui/tag";
 import { FaHeart, FaLocationArrow, FaStar, FaTags } from "react-icons/fa";
 import Header from "../../components/Header";
@@ -31,6 +39,7 @@ const Comments = () => {
       maxW="md"
       minH="md"
       p="6"
+      mt='8'
       bg="gray.100"
       boxShadow="lg"
       borderRadius="md"
@@ -59,6 +68,55 @@ const Comments = () => {
     </Box>
   );
 };
+
+const Access = () => {
+  return (
+    <Box
+      w="sm"
+      maxW="inherit"
+      minH="xs"
+      p="4"
+      bg="gray.100"
+      boxShadow="lg"
+      borderRadius="md"
+    >
+      <HStack>
+        <Icon as={FaTags} />
+        <Text>Accessibility</Text>
+      </HStack>
+      <VStack alignItems="flex-start" p="6">
+        <Text>Free Wifi</Text>
+        <Text>Delivery</Text>
+        <Text>POS</Text>
+      </VStack>
+    </Box>
+  );
+};
+
+const Location = () => {
+  return (
+    <Box
+      w="sm"
+      maxW="sm"
+      minH="md"
+      p="4"
+      bg="gray.100"
+      boxShadow="lg"
+      borderRadius="md"
+    >
+      <HStack>
+        <Icon as={FaLocationArrow} />
+        <Text>Location</Text>
+      </HStack>
+      <VStack alignItems="flex-start" p="6">
+        <Text>Free Wifi</Text>
+        <Text>Delivery</Text>
+        <Text>POS</Text>
+      </VStack>
+    </Box>
+  );
+};
+
 const ViewPost = () => {
   return (
     <>
@@ -75,63 +133,25 @@ const ViewPost = () => {
           ))}
       </HStack>
       <Box width="90%" margin="2rem auto">
-        <VStack spacing="4" alignItems="flex-start">
-          <Heading>White House & Dine</Heading>
-          <HStack spacing="4">
-            <Text>3 Total Visits</Text>
-            <Button variant="link">Write a review</Button>
-          </HStack>
-          <Button borderRadius="full" leftIcon={<FaHeart />}>
-            Favourite
-          </Button>
-        </VStack>
-
-        <Box
-          display="flex"
-          w="100%"
-          justifyContent="space-between"
-          flexWrap="wrap"
-          mt="8"
-        >
+        <Flex justifyContent="space-between" flexWrap="wrap">
+          <Box w={{md: '100%', xl: '60%'}}>
+            <VStack spacing="4" alignItems="flex-start">
+              <Heading>White House & Dine</Heading>
+              <HStack spacing="4">
+                <Text>3 Total Visits</Text>
+                <Button variant="link">Write a review</Button>
+              </HStack>
+              <Button borderRadius="full" leftIcon={<FaHeart />}>
+                Favourite
+              </Button>
+            </VStack>
+            <SimpleGrid minChildWidth='400px' spacing='20px' mt='8'>
+              <Location />
+              <Access />
+            </SimpleGrid>
+          </Box>
           <Comments />
-          <Box
-            w="sm"
-            minH="xs"
-            p="4"
-            bg="gray.100"
-            boxShadow="lg"
-            borderRadius="md"
-          >
-            <HStack>
-              <Icon as={FaTags} />
-              <Text>Accessibility</Text>
-            </HStack>
-            <VStack alignItems="flex-start" p="6">
-              <Text>Free Wifi</Text>
-              <Text>Delivery</Text>
-              <Text>POS</Text>
-            </VStack>
-          </Box>
-          <Box
-            w="sm"
-            maxW="sm"
-            minH="md"
-            p="4"
-            bg="gray.100"
-            boxShadow="lg"
-            borderRadius="md"
-          >
-            <HStack>
-              <Icon as={FaLocationArrow} />
-              <Text>Location</Text>
-            </HStack>
-            <VStack alignItems="flex-start" p="6">
-              <Text>Free Wifi</Text>
-              <Text>Delivery</Text>
-              <Text>POS</Text>
-            </VStack>
-          </Box>
-        </Box>
+        </Flex>
       </Box>
     </>
   );
