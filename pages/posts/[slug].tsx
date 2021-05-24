@@ -35,11 +35,10 @@ const Comment = () => {
 const Comments = () => {
   return (
     <Box
-      w="md"
-      maxW="md"
+      w='md'
       minH="md"
       p="6"
-      mt='8'
+      mt="8"
       bg="gray.100"
       boxShadow="lg"
       borderRadius="md"
@@ -72,9 +71,9 @@ const Comments = () => {
 const Access = () => {
   return (
     <Box
-      w="sm"
-      maxW="inherit"
+      w='sm'
       minH="xs"
+      maxW='100%'
       p="4"
       bg="gray.100"
       boxShadow="lg"
@@ -97,7 +96,7 @@ const Location = () => {
   return (
     <Box
       w="sm"
-      maxW="sm"
+      maxW="100%"
       minH="md"
       p="4"
       bg="gray.100"
@@ -108,11 +107,11 @@ const Location = () => {
         <Icon as={FaLocationArrow} />
         <Text>Location</Text>
       </HStack>
-      <VStack alignItems="flex-start" p="6">
-        <Text>Free Wifi</Text>
-        <Text>Delivery</Text>
-        <Text>POS</Text>
-      </VStack>
+      <Box mt='8' w="100%" bg="gray.600" h="44"></Box>
+      <Flex justifyContent='space-between' mt='4'>
+        <Text>10, Sadiku Street</Text>
+        <Button variant="link">Take me there</Button>
+      </Flex>
     </Box>
   );
 };
@@ -134,7 +133,7 @@ const ViewPost = () => {
       </HStack>
       <Box width="90%" margin="2rem auto">
         <Flex justifyContent="space-between" flexWrap="wrap">
-          <Box w={{md: '100%', xl: '60%'}}>
+          <Box w={{ base: '100%', md: "100%", xl: "60%" }}>
             <VStack spacing="4" alignItems="flex-start">
               <Heading>White House & Dine</Heading>
               <HStack spacing="4">
@@ -145,7 +144,7 @@ const ViewPost = () => {
                 Favourite
               </Button>
             </VStack>
-            <SimpleGrid minChildWidth='400px' spacing='20px' mt='8'>
+            <SimpleGrid minChildWidth={['100%', '380px']} spacing="20px" mt="8">
               <Location />
               <Access />
             </SimpleGrid>
