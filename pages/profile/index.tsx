@@ -1,9 +1,10 @@
 import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
-import { Box, Flex, HStack, Text } from "@chakra-ui/layout";
+import { Box, Flex, Heading, HStack, Text } from "@chakra-ui/layout";
+import Link from "next/link";
 import Header from "../../components/Header";
-import Slide from "../../components/Slides";
+import Post from "../../components/post";
 
 const Profile: React.FC = () => {
   return (
@@ -25,7 +26,7 @@ const Profile: React.FC = () => {
               width="64"
               justifyContent="space-between"
             >
-              <Avatar size="xl" src='https://i.imgur.com/Gh4Zd8w.jpg' />
+              <Avatar size="xl" src="https://i.imgur.com/Gh4Zd8w.jpg" />
               <Button borderRadius="full">Edit Profile</Button>
             </Flex>
             <Box>
@@ -52,7 +53,21 @@ const Profile: React.FC = () => {
             </HStack>
           </Box>
           <Box>
-            <Slide title="Posts" />
+            <Flex alignItems="center" justifyContent="space-between" mt="8">
+              <Heading size="md">Posts</Heading>
+              <Box mr="6">
+                <Button variant="link">
+                  <Link href="/posts">View all</Link>
+                </Button>
+              </Box>
+            </Flex>
+            <HStack spacing="8" overflowX="auto" flexFlow="unset" mt="4">
+              {Array(6)
+                .fill("")
+                .map((_, i) => (
+                  <Post key={i} />
+                ))}
+            </HStack>
           </Box>
         </Box>
       </Box>
