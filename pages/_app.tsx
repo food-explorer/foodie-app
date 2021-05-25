@@ -3,6 +3,7 @@ import { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 // import "../styles/globals.css";
 import theme from '../utils/theme';
+import 'focus-visible/dist/focus-visible';
 
 const extendedTheme = extendTheme(theme);
 
