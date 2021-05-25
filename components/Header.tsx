@@ -1,13 +1,15 @@
-import { Avatar } from "@chakra-ui/avatar";
-import { Button } from "@chakra-ui/button";
-import { Box, Flex, Heading, HStack, Text } from "@chakra-ui/layout";
-import Link from "next/link";
-import CustomLink from "./Link";
+import { Avatar } from '@chakra-ui/avatar';
+import { Button } from '@chakra-ui/button';
+import {
+  Box, Flex, Heading, HStack, Text,
+} from '@chakra-ui/layout';
+import Link from 'next/link';
+import CustomLink from './Link';
 
 const Header = () => {
   const isAuthentcated = true;
   return (
-    <Flex justifyContent="space-between" p={["4", "8"]} alignItems="center">
+    <Flex justifyContent="space-between" p={['4', '8']} alignItems="center">
       <Box>
         <Heading size="md" variant="brand" cursor="pointer">
           <CustomLink url="/">Foodie</CustomLink>

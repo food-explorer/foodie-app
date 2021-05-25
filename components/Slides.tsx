@@ -1,11 +1,13 @@
-import { Box, Flex, Heading, HStack, Text } from "@chakra-ui/layout";
-import Post, { SliderPost } from "../components/post";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useRef } from "react";
-import { IconButton } from "@chakra-ui/button";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import {
+  Box, Flex, Heading, HStack,
+} from '@chakra-ui/layout';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useRef } from 'react';
+import { IconButton } from '@chakra-ui/button';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { SliderPost } from './post';
 
 const settings = {
   dots: false,
@@ -42,9 +44,9 @@ const settings = {
 const Slide = ({ title }: { title?: string }) => {
   const sliderRef = useRef<Slider | null>(null);
 
-  const handler = (type: "next" | "prev") => {
+  const handler = (type: 'next' | 'prev') => {
     if (!sliderRef.current) return;
-    if (type === "next") {
+    if (type === 'next') {
       sliderRef.current.slickNext();
     } else {
       sliderRef.current.slickPrev();
@@ -54,36 +56,37 @@ const Slide = ({ title }: { title?: string }) => {
     <Box marginTop="8">
       <Flex
         alignItems="center"
-        justifyContent={title ? "space-between" : "flex-end"}
+        justifyContent={title ? 'space-between' : 'flex-end'}
         mb="4"
       >
         {title && <Heading size="lg">{title}</Heading>}
-        <Box mr="6" display={{ base: "none", lg: "block" }}>
+        <Box mr="6" display={{ base: 'none', lg: 'block' }}>
           <IconButton
             aria-label="Goto previous post list"
             size="lg"
             colorScheme="gray"
             isActive={false}
             icon={<FaChevronLeft />}
-            onClick={() => handler("prev")}
+            onClick={() => handler('prev')}
             variant="ghost"
-          ></IconButton>
+          />
           <IconButton
             aria-label="Goto next post list"
             size="lg"
             colorScheme="gray"
             isActive={false}
             icon={<FaChevronRight />}
-            onClick={() => handler("next")}
+            onClick={() => handler('next')}
             variant="ghost"
-          ></IconButton>
+          />
         </Box>
       </Flex>
-      <Box display={{ base: "none", lg: "block" }}>
+      <Box display={{ base: 'none', lg: 'block' }}>
         <Slider {...settings} ref={sliderRef} className="slicked">
           {Array(10)
-            .fill("")
+            .fill('')
             .map((_, i) => (
+              // eslint-disable-next-line react/no-array-index-key
               <SliderPost key={i} />
             ))}
         </Slider>
@@ -93,11 +96,12 @@ const Slide = ({ title }: { title?: string }) => {
         overflowX="auto"
         flexFlow="unset"
         mt="4"
-        display={{ base: "flex", lg: "none" }}
+        display={{ base: 'flex', lg: 'none' }}
       >
         {Array(10)
-          .fill("")
+          .fill('')
           .map((_, i) => (
+            // eslint-disable-next-line react/no-array-index-key
             <SliderPost key={i} />
           ))}
       </HStack>

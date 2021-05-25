@@ -1,7 +1,9 @@
-import { Box, Flex, Heading, HStack, Text } from "@chakra-ui/layout";
-import Header from "../components/Header";
-import Hero from "../components/Hero";
-import Slide from "../components/Slides";
+import {
+  Box,
+} from '@chakra-ui/layout';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import Slide from '../components/Slides';
 
 export default function Home() {
   return (

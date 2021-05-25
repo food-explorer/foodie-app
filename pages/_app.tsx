@@ -1,7 +1,8 @@
-import { AppProps } from "next/app";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+/* eslint-disable react/jsx-props-no-spreading */
+import { AppProps } from 'next/app';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 // import "../styles/globals.css";
-import theme from "../utils/theme";
+import theme from '../utils/theme';
 
 const extendedTheme = extendTheme(theme);
 

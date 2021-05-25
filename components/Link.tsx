@@ -1,23 +1,16 @@
-import { Button } from "@chakra-ui/button";
+import React from 'react';
 import {
-  Box,
-  Flex,
-  Heading,
-  HStack,
   Link as ChakraLink,
-  Text,
-} from "@chakra-ui/layout";
-import Link from "next/link";
+} from '@chakra-ui/layout';
+import Link from 'next/link';
 
 interface CustomLinkProps {
   url: string
-} 
-const CustomLink: React.FC<CustomLinkProps> = ({ children, url }) => {
-  return (
-    <ChakraLink as={Link} href={url}>
-      {children}
-    </ChakraLink>
-  );
-};
+}
+const CustomLink: React.FC<CustomLinkProps> = ({ children, url }) => (
+  <ChakraLink as={Link} href={url}>
+    {children}
+  </ChakraLink>
+);
 
 export default CustomLink;
