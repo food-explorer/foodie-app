@@ -9,8 +9,8 @@ import { Button, IconButton } from '@chakra-ui/button';
 const Hero = () => (
   <Flex alignItems="center" justifyContent="center">
     <Box>
-      <Heading size="xl">
-        Share more than just food with other foodies, share memories too.
+      <Heading size="2xl">
+        Share more than just food with other food explorers, share memories too.
       </Heading>
       <Box marginTop="4">
         <Link href="/posts">

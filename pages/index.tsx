@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
       <Box width="90%" margin="2rem auto">
         <Hero />
-        <Slide title="Discover Food Places" />
+        <Slide title="Discover Restaurants" />
         <Slide title="This week favorite" />
       </Box>
     </div>
