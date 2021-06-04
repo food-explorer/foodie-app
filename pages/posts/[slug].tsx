@@ -1,6 +1,4 @@
-import { Avatar } from '@chakra-ui/avatar';
 import { Button } from '@chakra-ui/button';
-import Icon from '@chakra-ui/icon';
 import { Image } from '@chakra-ui/image';
 import {
   Box,
@@ -11,105 +9,13 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/layout';
-import { Tag } from '@chakra-ui/tag';
 import {
-  FaHeart, FaLocationArrow, FaStar, FaTags,
+  FaHeart,
 } from 'react-icons/fa';
+import Accessbilites from '../../components/Accessibilities';
+import Comments from '../../components/Comments';
 import Header from '../../components/Header';
-
-const Comment = () => (
-  <HStack alignItems="flex-start">
-    <Avatar />
-    <VStack alignItems="flex-start" spacing="sm">
-      <Text fontWeight="semibold">Babatunde Yakub</Text>
-      <Text>
-        Best place to eat no cap, their shrimp is something to go to jail for
-      </Text>
-      <Text fontSize="sm" color="gray">
-        10 days ago
-      </Text>
-    </VStack>
-  </HStack>
-);
-
-const Comments = () => (
-  <Box
-    w="md"
-    minH="md"
-    p="6"
-    mt="8"
-    bg="gray.100"
-    boxShadow="lg"
-    borderRadius="md"
-  >
-    <Heading size="md">Recent Comments</Heading>
-    <Box mt="8">
-      <Flex justifyContent="space-between">
-        <HStack spacing="4">
-          <Tag variant="solid">3.0</Tag>
-          <HStack>
-            {Array(5)
-              .fill('')
-              .map((_, i) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <Icon as={FaStar} key={i} />
-              ))}
-          </HStack>
-        </HStack>
-        <Text>20 comments</Text>
-      </Flex>
-    </Box>
-
-    <VStack mt="8" spacing="4">
-      <Comment />
-      <Comment />
-    </VStack>
-  </Box>
-);
-
-const Access = () => (
-  <Box
-    w="sm"
-    minH="xs"
-    maxW="100%"
-    p="4"
-    bg="gray.100"
-    boxShadow="lg"
-    borderRadius="md"
-  >
-    <HStack>
-      <Icon as={FaTags} />
-      <Heading size="md">Accessibility</Heading>
-    </HStack>
-    <VStack alignItems="flex-start" p="6">
-      <Text>Free Wifi</Text>
-      <Text>Delivery</Text>
-      <Text>POS</Text>
-    </VStack>
-  </Box>
-);
-
-const Location = () => (
-  <Box
-    w="sm"
-    maxW="100%"
-    minH="md"
-    p="4"
-    bg="gray.100"
-    boxShadow="lg"
-    borderRadius="md"
-  >
-    <HStack>
-      <Icon as={FaLocationArrow} />
-      <Heading size="md">Location</Heading>
-    </HStack>
-    <Box mt="8" w="100%" bg="gray.600" h="44" />
-    <Flex justifyContent="space-between" mt="4">
-      <Text>10, Sadiku Street</Text>
-      <Button variant="link">Take me there</Button>
-    </Flex>
-  </Box>
-);
+import Location from '../../components/Location';
 
 const ViewPost = () => (
   <>
@@ -141,7 +47,7 @@ const ViewPost = () => (
           </VStack>
           <SimpleGrid minChildWidth={['100%', '380px']} spacing="20px" mt="8">
             <Location />
-            <Access />
+            <Accessbilites />
           </SimpleGrid>
         </Box>
         <Comments />
