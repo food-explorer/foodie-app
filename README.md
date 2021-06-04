@@ -4,8 +4,10 @@ Explore. Eat. Meet
 
 Use Food-Explorers to not only discover restarants around you, but also discover other food explorers to enjoy a good meal together.
 Think of digital nomads, but for food :)
-### **Still in development mode**
 
-[Visit Website](https://foodie.come)
+>Still in development mode
+
+**Web Link coming soon**
+<!-- [Visit Website](https://foodie.come) -->
 
 ![Image](https://res.cloudinary.com/buymezobo/image/upload/v1622812198/images/Screenshot_from_2021-06-04_14-05-39.png)
