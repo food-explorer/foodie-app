@@ -33,6 +33,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'warn',
+    'no-param-reassign': 'off',
   },
   settings: {
     'import/resolver': {
