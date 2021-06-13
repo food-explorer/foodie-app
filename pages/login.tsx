@@ -7,25 +7,29 @@ import {
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
-import { useDispatch } from 'react-redux';
+import axios from 'axios';
 import { loginSuccess } from '../store/reducers/authReducer';
-
-type GoogleResponse = GoogleLoginResponse | GoogleLoginResponseOffline;
+import { useAppDispatch } from '../store';
 
 const Login = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
-  const handleLogin = (response: GoogleResponse) => {
-    console.log(response);
-    dispatch(loginSuccess({
-      email: 'tunde@mail.com',
-      image: 'https://',
-      location: 'erne',
-      name: 'Tunde Nasri',
-      token: 'eirer',
-    }));
-    router.push('/posts');
+  const handleLogin = async (googleData: GoogleLoginResponse | GoogleLoginResponseOffline) => {
+    if ('tokenId' in googleData) {
+      const userData = await axios.post(`${process.env.base_api_url}/auth/google`, { token: googleData.tokenId });
+      const {
+        email, name, token, image,
+      } = userData.data.data;
+      dispatch(loginSuccess({
+        email,
+        image,
+        name,
+        token,
+        location: 'erne',
+      }));
+      router.push('/posts');
+    }
   };
 
   return (
@@ -44,9 +48,11 @@ const Login = () => {
             mt={8}
           >
             <GoogleLogin
-              clientId="209004910483-n4m0ksth3jghbudtq9kleb1uhh5i9u9o.apps.googleusercontent.com"
+              clientId={process.env.GOOGLE_CLIENTID as string}
               onSuccess={handleLogin}
               onFailure={handleLogin}
+              accessType="online"
+              responseType="id_token"
             />
           </Box>
         </Box>
