@@ -48,7 +48,7 @@ const Login = () => {
             mt={8}
           >
             <GoogleLogin
-              clientId={process.env.GOOGLE_CLIENTID as string}
+              clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENTID as string}
               onSuccess={handleLogin}
               onFailure={handleLogin}
               accessType="online"
