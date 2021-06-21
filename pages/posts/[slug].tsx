@@ -12,7 +12,7 @@ import {
 import {
   FaHeart,
 } from 'react-icons/fa';
-import Accessbilites from '../../components/Accessibilities';
+import Accessibility from '../../components/Accessibilities';
 import Comments from '../../components/Comments';
 import Header from '../../components/Header';
 import Location from '../../components/Location';
@@ -47,7 +47,7 @@ const ViewPost = () => (
           </VStack>
           <SimpleGrid minChildWidth={['100%', '380px']} spacing="20px" mt="8">
             <Location />
-            <Accessbilites />
+            <Accessibility />
           </SimpleGrid>
         </Box>
         <Comments />

@@ -8,19 +8,25 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 import { loginSuccess } from '../store/reducers/authReducer';
 import { useAppDispatch } from '../store';
 
 const Login = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
+  const [cookies, setCookie] = useCookies(['jwt_token']);
 
   const handleLogin = async (googleData: GoogleLoginResponse | GoogleLoginResponseOffline) => {
     if ('tokenId' in googleData) {
-      const userData = await axios.post(`${process.env.base_api_url}/auth/google`, { token: googleData.tokenId });
+      const userData = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/google`, { token: googleData.tokenId });
       const {
         email, name, token, image,
       } = userData.data.data;
+      console.log('🚀 ~ file: login.tsx ~ line 26 ~ handleLogin ~ token', token);
+      // save to cookie
+      setCookie('jwt_token', token);
+
       dispatch(loginSuccess({
         email,
         image,
@@ -48,7 +54,7 @@ const Login = () => {
             mt={8}
           >
             <GoogleLogin
-              clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENTID as string}
+              clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string}
               onSuccess={handleLogin}
               onFailure={handleLogin}
               accessType="online"

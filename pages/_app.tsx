@@ -5,6 +5,8 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { Provider } from 'react-redux';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { CookiesProvider } from 'react-cookie';
+import React from 'react';
 import theme from '../utils/theme';
 import 'focus-visible/dist/focus-visible';
 import store from '../store';
@@ -18,8 +20,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <ChakraProvider theme={extendedTheme}>
         <QueryClientProvider client={queryClient}>
-          <Component {...pageProps} />
-          <ReactQueryDevtools />
+          <CookiesProvider>
+            <ReactQueryDevtools />
+            <Component {...pageProps} />
+          </CookiesProvider>
         </QueryClientProvider>
       </ChakraProvider>
     </Provider>
