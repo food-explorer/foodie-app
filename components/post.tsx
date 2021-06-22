@@ -2,21 +2,21 @@ import { Image } from '@chakra-ui/image';
 import { Box, Flex, Text } from '@chakra-ui/layout';
 import { FaStar } from 'react-icons/fa';
 import Icon from '@chakra-ui/icon';
-import { BoxProps, LinkBox, LinkOverlay } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { Link } from '@chakra-ui/react';
 import React from 'react';
 
-const MotionBox = motion<BoxProps>(LinkBox);
-
 export const SliderPost = () => (
-  <LinkBox minW="263px" w="263px  ">
-    <LinkOverlay href="/posts/hber">
+  <Box minW="263px" w="263px">
+    <Link href="/posts/hber">
       <Box borderRadius="2xl" border="medium" overflow="hidden">
-        <MotionBox whileHover={{ scale: 1.1, transition: { duration: 0.4 } }}>
-          <Image src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="svg post" w="1020px" />
-        </MotionBox>
+        <Image
+          src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="svg post"
+          w="1020px"
+          _hover={{ transition: '400ms ease-in', transform: 'scale(1.1)' }}
+        />
       </Box>
-    </LinkOverlay>
+    </Link>
     <Flex justifyContent="space-between" mt="2">
       <Text fontSize="lg" fontWeight="600">
         White House
@@ -39,17 +39,20 @@ export const SliderPost = () => (
         12 reviews
       </Box>
     </Flex>
-  </LinkBox>
+  </Box>
 );
 const Post = () => (
-  <LinkBox minWidth="263px">
-    <LinkOverlay href="/posts/erjne">
+  <Box minWidth="263px">
+    <Link href="/posts/hber">
       <Box borderRadius="2xl" border="medium" overflow="hidden">
-        <MotionBox whileHover={{ scale: 1.1, transition: { duration: 0.4 } }}>
-          <Image src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="svg post" w="1020px" />
-        </MotionBox>
+        <Image
+          src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="svg post"
+          w="1020px"
+          _hover={{ transition: '400ms ease-in', transform: 'scale(1.1)' }}
+        />
       </Box>
-    </LinkOverlay>
+    </Link>
     <Flex justifyContent="space-between" mt="2">
       <Text fontSize="lg" fontWeight="600">
         White House
@@ -71,7 +74,7 @@ const Post = () => (
         12 reviews
       </Box>
     </Flex>
-  </LinkBox>
+  </Box>
 );
 
 export default Post;
