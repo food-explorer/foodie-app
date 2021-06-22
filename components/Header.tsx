@@ -20,11 +20,11 @@ const Header = () => {
       {!isLoggedIn ? (
         <Flex>
           <HStack spacing="4">
-            <Text>
+            {/* <Text>
               <CustomLink url="/login">Log In</CustomLink>
-            </Text>
-            <CustomLink url="/register">
-              <Button>Sign Up</Button>
+            </Text> */}
+            <CustomLink url="/login">
+              <Button>Log In</Button>
             </CustomLink>
           </HStack>
         </Flex>
@@ -33,9 +33,6 @@ const Header = () => {
           <HStack spacing="4">
             <Text>
               <CustomLink url="/posts">My List</CustomLink>
-            </Text>
-            <Text>
-              <CustomLink url="/login">New Post</CustomLink>
             </Text>
             <Link href="/profile">
               <Avatar

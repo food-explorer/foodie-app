@@ -2,12 +2,21 @@ import { Image } from '@chakra-ui/image';
 import { Box, Flex, Text } from '@chakra-ui/layout';
 import { FaStar } from 'react-icons/fa';
 import Icon from '@chakra-ui/icon';
+import { BoxProps, LinkBox, LinkOverlay } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import React from 'react';
+
+const MotionBox = motion<BoxProps>(LinkBox);
 
 export const SliderPost = () => (
-  <Box minW="263px" w="263px">
-    <Box>
-      <Image src="/post.svg" alt="svg post" w="100%" />
-    </Box>
+  <LinkBox minW="263px" w="263px  ">
+    <LinkOverlay href="/posts/hber">
+      <Box borderRadius="2xl" border="medium" overflow="hidden">
+        <MotionBox whileHover={{ scale: 1.1, transition: { duration: 0.4 } }}>
+          <Image src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="svg post" w="1020px" />
+        </MotionBox>
+      </Box>
+    </LinkOverlay>
     <Flex justifyContent="space-between" mt="2">
       <Text fontSize="lg" fontWeight="600">
         White House
@@ -30,20 +39,23 @@ export const SliderPost = () => (
         12 reviews
       </Box>
     </Flex>
-  </Box>
+  </LinkBox>
 );
 const Post = () => (
-  <Box minWidth="263px">
-    <Box>
-      <Image src="/post.svg" alt="svg post" w="100%" />
-    </Box>
+  <LinkBox minWidth="263px">
+    <LinkOverlay href="/posts/erjne">
+      <Box borderRadius="2xl" border="medium" overflow="hidden">
+        <MotionBox whileHover={{ scale: 1.1, transition: { duration: 0.4 } }}>
+          <Image src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="svg post" w="1020px" />
+        </MotionBox>
+      </Box>
+    </LinkOverlay>
     <Flex justifyContent="space-between" mt="2">
       <Text fontSize="lg" fontWeight="600">
         White House
       </Text>
       <Text color="gray">By Tunde</Text>
     </Flex>
-
     <Flex mt="2">
       {Array(5)
         .fill('')
@@ -59,7 +71,7 @@ const Post = () => (
         12 reviews
       </Box>
     </Flex>
-  </Box>
+  </LinkBox>
 );
 
 export default Post;

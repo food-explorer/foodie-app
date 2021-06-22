@@ -16,6 +16,7 @@ const settings = {
   slidesToShow: 5,
   slidesToScroll: 1,
   arrows: false,
+  adaptiveHeight: true,
   responsive: [
     {
       breakpoint: 1275,

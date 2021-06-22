@@ -6,6 +6,7 @@ import {
   Box, Flex, Heading, HStack, Text,
 } from '@chakra-ui/layout';
 import Link from 'next/link';
+import { SimpleGrid } from '@chakra-ui/react';
 import Header from '../../components/Header';
 import Post from '../../components/post';
 
@@ -63,14 +64,14 @@ const Profile: React.FC = () => (
               </Button>
             </Box>
           </Flex>
-          <HStack spacing="8" overflowX="auto" flexFlow="unset" mt="4">
-            {Array(6)
+          <SimpleGrid minChildWidth="270px" spacing="4" mt="4">
+            {Array(4)
               .fill('')
               .map((_, i) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <Post key={i} />
               ))}
-          </HStack>
+          </SimpleGrid>
         </Box>
       </Box>
     </Box>
