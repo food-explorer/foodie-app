@@ -4,11 +4,12 @@ import {
   Box, Flex, Heading, HStack, Text,
 } from '@chakra-ui/layout';
 import Link from 'next/link';
-import useAuth from '../hooks/useAuth';
+import { useAuth } from '../context/auth-context';
 import CustomLink from './Link';
 
 const Header = () => {
-  const [isLoggedIn, user] = useAuth();
+  const { isLoggedIn, data } = useAuth();
+  console.log('🚀 ~ file: Header.tsx ~ line 12 ~ Header ~ data', data);
 
   return (
     <Flex justifyContent="space-between" p={['4', '8']} alignItems="center">
@@ -17,7 +18,7 @@ const Header = () => {
           <CustomLink url="/">Foodie</CustomLink>
         </Heading>
       </Box>
-      {!isLoggedIn || !user ? (
+      {!isLoggedIn || !data ? (
         <Flex>
           <HStack spacing="4">
             <Text>
@@ -39,9 +40,9 @@ const Header = () => {
             </Text>
             <Link href="/profile">
               <Avatar
-                name={user.name}
+                name={data.name}
                 size="sm"
-                src="https://i.imgur.com/Gh4Zd8w.jpg"
+                src={data.image}
                 cursor="pointer"
               />
             </Link>

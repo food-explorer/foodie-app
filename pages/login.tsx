@@ -9,11 +9,8 @@ import Link from 'next/link';
 import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
-import { loginSuccess } from '../store/reducers/authReducer';
-import { useAppDispatch } from '../store';
 
 const Login = () => {
-  const dispatch = useAppDispatch();
   const router = useRouter();
   const [cookies, setCookie] = useCookies(['jwt_token']);
 
@@ -27,13 +24,6 @@ const Login = () => {
       // save to cookie
       setCookie('jwt_token', token);
 
-      dispatch(loginSuccess({
-        email,
-        image,
-        name,
-        token,
-        location: 'erne',
-      }));
       router.push('/posts');
     }
   };
