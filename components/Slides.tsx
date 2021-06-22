@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import { IconButton } from '@chakra-ui/button';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { SliderPost } from './post';
+import { IPostCard } from '../data/postsData';
 
 const settings = {
   dots: false,
@@ -42,7 +43,7 @@ const settings = {
   ],
 };
 
-const Slide = ({ title }: { title?: string }) => {
+const Slide = ({ title, data }: { title?: string, data: IPostCard[] }) => {
   const sliderRef = useRef<Slider | null>(null);
 
   const handler = (type: 'next' | 'prev') => {
@@ -84,12 +85,9 @@ const Slide = ({ title }: { title?: string }) => {
       </Flex>
       <Box display={{ base: 'none', lg: 'block' }}>
         <Slider {...settings} ref={sliderRef} className="slicked">
-          {Array(10)
-            .fill('')
-            .map((_, i) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <SliderPost key={i} />
-            ))}
+          {data.map((post) => (
+            <SliderPost key={post.id} post={post} />
+          ))}
         </Slider>
       </Box>
       <HStack
@@ -99,12 +97,9 @@ const Slide = ({ title }: { title?: string }) => {
         mt="4"
         display={{ base: 'flex', lg: 'none' }}
       >
-        {Array(10)
-          .fill('')
-          .map((_, i) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <SliderPost key={i} />
-          ))}
+        {data.map((post) => (
+          <SliderPost key={post.id} post={post} />
+        ))}
       </HStack>
     </Box>
   );

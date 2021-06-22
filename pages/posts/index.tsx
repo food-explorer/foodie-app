@@ -6,6 +6,7 @@ import {
 } from '@chakra-ui/tabs';
 import Header from '../../components/Header';
 import Post from '../../components/post';
+import postsData from '../../data/postsData';
 
 const Posts = () => (
   <>
@@ -20,22 +21,16 @@ const Posts = () => (
         <TabPanels marginTop="8">
           <TabPanel padding="0">
             <SimpleGrid minChildWidth="270px" spacing="20px">
-              {Array(10)
-                .fill('')
-                .map((_, i) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <Post key={i} />
-                ))}
+              {postsData.map((post) => (
+                <Post key={post.id} post={post} />
+              ))}
             </SimpleGrid>
           </TabPanel>
           <TabPanel padding="0">
             <SimpleGrid minChildWidth="270px" spacing="20px">
-              {Array(10)
-                .fill('')
-                .map((_, i) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <Post key={i} />
-                ))}
+              {postsData.map((post) => (
+                <Post key={post.id} post={post} />
+              ))}
             </SimpleGrid>
           </TabPanel>
         </TabPanels>

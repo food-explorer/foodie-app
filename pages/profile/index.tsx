@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { SimpleGrid } from '@chakra-ui/react';
 import Header from '../../components/Header';
 import Post from '../../components/post';
+import postsData from '../../data/postsData';
 
 const Profile: React.FC = () => (
   <>
@@ -65,12 +66,9 @@ const Profile: React.FC = () => (
             </Box>
           </Flex>
           <SimpleGrid minChildWidth="270px" spacing="4" mt="4">
-            {Array(4)
-              .fill('')
-              .map((_, i) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <Post key={i} />
-              ))}
+            {postsData.slice(0, 4).map((post) => (
+              <Post key={post.id} post={post} />
+            ))}
           </SimpleGrid>
         </Box>
       </Box>
