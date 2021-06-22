@@ -9,7 +9,6 @@ import CustomLink from './Link';
 
 const Header = () => {
   const { isLoggedIn, data } = useAuth();
-  console.log('🚀 ~ file: Header.tsx ~ line 12 ~ Header ~ data', data);
 
   return (
     <Flex justifyContent="space-between" p={['4', '8']} alignItems="center">
@@ -18,7 +17,7 @@ const Header = () => {
           <CustomLink url="/">Foodie</CustomLink>
         </Heading>
       </Box>
-      {!isLoggedIn || !data ? (
+      {!isLoggedIn ? (
         <Flex>
           <HStack spacing="4">
             <Text>
@@ -40,9 +39,8 @@ const Header = () => {
             </Text>
             <Link href="/profile">
               <Avatar
-                name={data.name}
                 size="sm"
-                src={data.image}
+                src={data?.image}
                 cursor="pointer"
               />
             </Link>

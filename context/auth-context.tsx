@@ -15,17 +15,8 @@ type AuthData = {
   // eslint-disable-next-line no-unused-vars
   loginUser: (x: IUser) => void;
 }
-const authContextDefaultValues: AuthData = {
-  data: {
-    name: '',
-    image: '',
-    username: '',
-  },
-  isLoggedIn: false,
-  loginUser: () => {},
-};
 
-export const AuthContext = React.createContext<AuthData>(authContextDefaultValues);
+const AuthContext = React.createContext<AuthData | undefined>(undefined);
 
 const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<IUser | null>(null);
@@ -63,14 +54,22 @@ const AuthProvider: React.FC = ({ children }) => {
   );
 };
 
-export const useAuth = () => React.useContext(AuthContext);
+export const useAuth = () => {
+  const context = React.useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useCount must be used within a CountProvider');
+  }
+  return context;
+};
+
 export default AuthProvider;
 
 export const getServerSideProps = async () => {
   await new Promise((resolve) => {
     setTimeout(() => {
       resolve('thanks');
-    }, 30000);
+      console.log('yes');
+    }, 300);
   });
 
   return {

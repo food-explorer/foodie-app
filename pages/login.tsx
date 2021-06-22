@@ -9,19 +9,22 @@ import Link from 'next/link';
 import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
+import { useAuth } from '../context/auth-context';
 
 const Login = () => {
   const router = useRouter();
-  const [cookies, setCookie] = useCookies(['jwt_token']);
+  const { loginUser } = useAuth();
+  const [, setCookie] = useCookies(['jwt_token']);
 
   const handleLogin = async (googleData: GoogleLoginResponse | GoogleLoginResponseOffline) => {
     if ('tokenId' in googleData) {
-      const userData = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/google`, { token: googleData.tokenId });
+      const userData = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/google`,
+        { token: googleData.tokenId });
       const {
-        email, name, token, image,
+        name, token, image, username,
       } = userData.data.data;
-      console.log('🚀 ~ file: login.tsx ~ line 26 ~ handleLogin ~ token', token);
       // save to cookie
+      loginUser({ name, image, username });
       setCookie('jwt_token', token);
 
       router.push('/posts');
